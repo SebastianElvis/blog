@@ -1,7 +1,6 @@
 ---
 title: >-
-  CCS'18 - Ouroboros Genesis: Composable Proof-of-Stake Blockchains with Dynamic
-  Availability
+  CCS'18 - Ouroboros Genesis: Composable Proof-of-Stake Blockchains with Dynamic Availability
 date: 2018-11-08 19:15:19
 categories:
 - paper reading
@@ -16,15 +15,14 @@ tags:
 
 # Info
 
-- **Title**: Ouroboros Genesis: Composable Proof-of-Stake Blockchains with Dynamic
-  Availability
+- **Title**: Ouroboros Genesis: Composable Proof-of-Stake Blockchains with Dynamic Availability
 - **Conference**: ACM CCS
 - **Year**: 2018
 - **Topic**: Cryptography and Security (cs.CR)
 - **URL**: https://eprint.iacr.org/2018/378.pdf
 - **Source code**: No
 
-# Simplified definitions
+# Simplified Definitions
 
 - **Dynamic availability**: tolerating the *Churn* problem
 - **Composability**: Miners can double the value by mining two coins with the same PoW protocol simultaneously.
