@@ -2,8 +2,8 @@
 title: Polland Rho Algorithm
 date: 2018-11-11 13:48:32
 categories:
-- algorithm
 - cryptography
+- numerical algorithms
 tags:
 - Cryptography
 - Numerical Algorithms
