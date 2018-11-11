@@ -81,3 +81,15 @@ deploy:
   type: git
   repo: https://github.com/SebastianElvis/SebastianElvis.github.io.git
   branch: master
+
+math:
+  engine: 'mathjax' # or 'katex'
+  mathjax:
+    src: # "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    config:
+      # MathJax config
+  katex:
+    css: #custom_css_source
+    js: #custom_js_source # not used
+    config:
+      # KaTeX config

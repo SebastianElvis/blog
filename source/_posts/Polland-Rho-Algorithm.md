@@ -19,8 +19,8 @@ tags:
 
 Assume $g(x)$ is a sequential random number generator.
 For example:
-- $x_{1} = g(x_{0})$
-- $x_{2} = g(x_{1})$
+- $x\_{1} = g(x\_{0})$
+- $x\_{2} = g(x\_{1})$
 - ...
 
 The Polland Rho algorithm is
