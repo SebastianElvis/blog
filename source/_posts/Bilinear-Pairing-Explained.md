@@ -38,7 +38,7 @@ Some researchers classify pairing instantiations into three (or more) basic type
 
 ## DDH, CDH
 
-- **DDH (Decisional Diffie-Hellman Problem)**: For aribitrary $a, b, c \in Z_{q}$, given $P, a^{P}, b^{P}, c^{P}$, decide $c \stackrel{?}{=} ab $ 
+- **DDH (Decisional Diffie-Hellman Problem)**: For aribitrary $a, b, c \in Z_{q}$ and $g$ as the generator in $Z_{q}$, given $g, g^{a}, g^{b}, g^{c}$, decide $c \stackrel{?}{=} ab $ 
 
 - **CDH (Computational Diffie-Hellman Problem)**: Given $ g, g^{x}, g^{y}$, compute $g^{xy} $
 
@@ -52,8 +52,7 @@ Many cryptographic protocols are based on the assumption that DDH and CDH do not
 
 ## BDDH, BCDH
 
-- **Bilinear DDH**: For arbitrary $a, b, c, d \in $
+- **Bilinear DDH (BDDH)**: For arbitrary $a, b, c, d \in Z_{q}$, given $g^{a}, g^{b}, g^{c}, g^{d}, g^{abc}$, decide $d \stackrel{?}{=} abc$
 
-BDDH：任意选取(a,b,c,d), 在多项式时间内将(g^a,g^b,g^c,g^(abc)) 和(g^a,g^b,g^c,g^d)两者明显的区分开来。
+- **Bilinear CDH (BCDH)**: For arbitrary $a, b, c \in Z_{q}$, given $g^{a}, g^{b}, g^{c}$, compute $g^{abc}$
 
-BCDH： 任意选取(a,b,c)，在多项式时间内计算出g^(abc).目前的假设是BDDH即使实在有pairing的情况下仍然是一个困难的问题(即不存在多项式算法)。
