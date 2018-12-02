@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -93,3 +93,13 @@ math:
     js: #custom_js_source # not used
     config:
       # KaTeX config
+
+sequence:
+  # webfont:     # optional, the source url of webfontloader.js 
+  # snap:        # optional, the source url of snap.svg.js 
+  # underscore:  # optional, the source url of underscore.js 
+  # sequence:    # optional, the source url of sequence-diagram.js 
+  # css: # optional, the url for css, such as hand drawn theme 
+  options: 
+    theme: 
+    css_class:
