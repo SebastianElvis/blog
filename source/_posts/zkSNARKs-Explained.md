@@ -44,17 +44,17 @@ tags:
   - $c = E(m) = m^{e} \mod n$
   - $m = D(c) = c^{d} \mod n$
 - RSA is **Multiplicatively Homomorphic**
-  - $ E(x)E(y) \equiv x^{e}y^{e} \equiv (xy)^{e} \equiv E(xy) (\mod n) $
+  - $ E(x)E(y) \equiv x^{e}y^{e} \equiv (xy)^{e} \equiv E(xy) ( \mod n) $
 - ZK by RSA
   - Prover knows $x, y$ and he wants to prove this for Verifier
-  - Prover sends $E(x), E(y), E(xy)$ to Verifier
+  - Prover sends $ E(x), E(y), E(xy) $ to Verifier
   - NOT secure!
 
 # NP-Completeness
 
 For any NP problem $L$, there is a Polynomial Time *reduction function* $f$ s.t.:
 
-$ L(x) = SAT(f(x)) $
+$L(x) = SAT(f(x))$
 
 $f$ can be seen as a **compiler**
 
@@ -77,14 +77,14 @@ Formally, a QSP over a field $F$ for inputs of length $n$ consists of:
 
 Then
 
-- $ QSP(u) \rightarrow \{0,1\} $
+- $QSP(u) \rightarrow \{0,1\}$
 - $u$ is a string input with $n$ bits
 - 0 = false, 1 = true
 - **Find $u$ is NP-Complete**
   - Find $u$ $\Rightarrow$ Determine factors
   - Determining factors is **NP-Complete**
 
-Formally, an input $u$ is *accepted* (verified) iff there are tuples $ a = (a_{1},...,a_{n}) $, $ b = (b_{1},...,b_{n}) $ from $F$ s.t.
+Formally, an input $u$ is *accepted* (verified) iff there are tuples $a = (a_{1},...,a_{n})$, $b = (b_{1},...,b_{n})$ from $F$ s.t.
 
 - $a_{k}, b_{k} = 1$ if $k = f(i, u[i])$ for some $i$, ($u[i]$ is the $i$th bit of $u$)
 - $a_{k}, b_{k} = 0$ if $k = f(i, 1-u[i])$ for some $i$
@@ -115,10 +115,10 @@ Based on **Knowledge of Exponent (KEA1) Assumption**.
   - $d$ is the max degree of all polynomials
   - After that $s$ is toxic and should be forgotten
   - Now Prover can compute $E(f(s))$ without knowing $s$
-2. Verifier chooses another secret field value $\alpha$ and publishes the "shifted" values $E(\alpha s^{0}),...E(\alpha s^{d})$
+2. Verifier chooses another secret field value $\alpha$ and publishes the "shifted" values $E( \alpha s^{0}),...E( \alpha s^{d})$
   - $\alpha$ is also destroyed after the setup phase
-  - Proer can also easily compute $E(\alpha f(s))$
-3. Prover publishes $A = E(f(s))$ and $B = E(\alpha f(s))$
+  - Proer can also easily compute $E( \alpha f(s))$
+3. Prover publishes $A = E(f(s))$ and $B = E( \alpha f(s))$
 4. Verifier check that these values match
   - By **Bilinear Pairing**
     - $e(A, g^{\alpha}) = e(g^{f(s)}, g^{\alpha}) = e(g, g)^{\alpha f(s)}$
@@ -128,19 +128,19 @@ Based on **Knowledge of Exponent (KEA1) Assumption**.
 
 ## The Base Protocol + ZK Part
 
-In the Base Protocol, Verifier knows the **exact value** of $E(f(s)), E(\alpha f(s))$ from Prover.
+In the Base Protocol, Verifier knows the **exact value** of $E(f(s)), E( \alpha f(s))$ from Prover.
 
 Now we want a solution where
-- Verifier publishes $E(s^{0}),...,E(s^{d}), E(\alpha s^{0}),...,E(\alpha s^{d})$
-- Verifier convinces that Prover knows $E(f(s)), E(\alpha f(s))$
+- Verifier publishes $E(s^{0}),...,E(s^{d}), E( \alpha s^{0}),...,E( \alpha s^{d})$
+- Verifier convinces that Prover knows $E(f(s)), E( \alpha f(s))$
 - But Verifier cannot know anything about $f(s)$, not even $E(f(s))$
 
 The solution is as follows:
 
 1. same
 2. same
-3. Prover picks a random $\delta$, and sends $A' = E(\delta + f(s)), B' = E(\alpha (\delta +f(s)))$
-  - e.g. $A' = E(\delta + f(s)) = g^{\delta + f(s)} = g^{\delta}g^{f(s)} = E(\delta)E(f(s))A$
+3. Prover picks a random $\delta$, and sends $A' = E( \delta + f(s)), B' = E( \alpha ( \delta +f(s)))$
+  - e.g. $A' = E( \delta + f(s)) = g^{\delta + f(s)} = g^{\delta}g^{f(s)} = E( \delta)E(f(s))A$
 
 
 ## A SNARK for QSP
@@ -153,7 +153,8 @@ We have the following public variables:
 - A binary input string $u$
 
 Prover should find 
-- $a_{1},...,a_{m},b_{1},...,b_{m}$ (restricted by an injective function $f$ depending on $u$)
+- $a_{1},...,a_{m},b_{1},...,b_{m}$ 
+  - (restricted by an injective function $f$ depending on $u$)
 - A polynomial $h$
 
 such that
@@ -163,34 +164,34 @@ $th = (v_{0}+a_{1}v_{1}+...+a_{m}v_{m}) (w_{0}+b_{1}w_{1}+...+b_{m}w_{m})$
 The process is as follows
 
 1. Verifier chooses secret numbers $s$ and $a$, then publishes CRS consisting of
-  - $E(s^{0}),...,E(s^{d})$ and $E(\alpha s^{0}),...,E(\alpha s^{d})$
+  - $E(s^{0})$, ..., $E(s^{d})$ and $E( \alpha s^{0})$, ..., $E( \alpha s^{d})$
   - Encrypted $t$ values on point $s$
-    - $E(t(s))$ and $E(\alpha t(s))$
-    - $E(v_{0}(s)),...,E(v_{m}(s))$ and $E(\alpha v_{0}(s)),...,E(\alpha v_{m}(s))$
-    - $E(w_{0}(s)),...,E(w_{m}(s))$ and $E(\alpha w_{0}(s)),...,E(\alpha w_{m}(s))$
-  - Verifier further chooses secret numbers $\beta_{v},\beta_{w},\gamma$ used for verify that those polynomials were evaluated and not some arbitrary polynomials (formally, **Commitment**)
-    - $E(\gamma), E(\beta_{v}\gamma), E(\beta_{w}\gamma)$
-    - $E(\beta_{v} v_{1}(s)),...,E(\beta_{v}v_{m}(s))$
-    - $E(\beta_{w} w_{1}(s)),...,E(\beta_{w}w_{m}(s))$
-    - $E(\beta_{v}t(s)), E(\beta_{w}t(s))$
+    - $E(t(s))$ and $E( \alpha t(s))$
+    - $E(v_{0}(s))$, ..., $E(v_{m}(s))$ and $E( \alpha v_{0}(s))$, ..., $E( \alpha v_{m}(s))$
+    - $E(w_{0}(s))$, ..., $E(w_{m}(s))$ and $E( \alpha w_{0}(s))$, ..., $E( \alpha w_{m}(s))$
+  - Verifier further chooses secret numbers $\beta_{v}$, $\beta_{w}$, $\gamma$ used for verify that those polynomials were evaluated and not some arbitrary polynomials (formally, **Commitment**)
+    - $E( \gamma)$, $E( \beta_{v} \gamma)$, $E( \beta_{w}\gamma)$
+    - $E( \beta_{v} v_{1}(s))$, ..., $E( \beta_{v}v_{m}(s))$
+    - $E( \beta_{w} w_{1}(s))$, ..., $E( \beta_{w}w_{m}(s))$
+    - $E( \beta_{v}t(s))$, $E( \beta_{w}t(s))$
 2. Prover gives *proof* to Verifier
   - Recall $f: \{ (i,j) | 1 \leq i \leq n, j \in \{0,1\} \rightarrow \{1,...,m\} \}$, where $m$ is relatively large
   - $f$ cannot cover all values over $1,...,m$
   - We call values $f$ does not cover $I_{free}$
-  - We define $v_{free}(x) = \sum a_{k}v_{k}(x)$ where $k$ ranges over all $I_{free}$
+  - We define $v_{free}(x) = \sum{a_{k}v_{k}(x)}$ where $k$ ranges over all $I_{free}$
   - The *proof* consists of 
     - $V_{free} = E(v_{free}(s))$, $W = E(w(s))$, $H = E(h(s))$
-    - $V'_{free} = E(\alpha v_{free}(s))$, $W' = E(\alpha w(s))$, $H' = E(\alpha h(s))$
-    - $Y = E(\beta_{v}v_{free}(s) + \beta_{w}w(s))$
+    - ${V'}_{free} = E( \alpha v_{free}(s))$, $W' = E( \alpha w(s))$, $H' = E( \alpha h(s))$
+    - $Y = E( \beta_{v}v_{free}(s) + \beta_{w}w(s))$
 3. Verifier verifies *proof*
-  - Verifier computes $E(v_{in}(s)) = E(\sum a_{k}v_{k}(s))$, where $v_{in}$ of Verifier should $= v_{free}$ of Prover
+  - Verifier computes $E(v_{in}(s)) = E( \sum a_{k}v_{k}(s))$, where $v_{in}$ of Verifier should $= v_{free}$ of Prover
   - Verifier verifies the following equalities using the Pairing function $e$
-    - $e(V'_{free}, g) = e(V_{free}, g^{\alpha})$, $e(W', E(1)) = e(W, E(\alpha))$, $e(H', E(1)) = e(H, E(\alpha))$
-    - $e(E(\gamma), Y) = e(E(\beta_{v}\gamma), V_{free})e(E(\beta_{w}\gamma), W)$
+    - $e( {V'}_{free}, g) = e( V_{free}, g^{\alpha})$, $e(W', E(1)) = e(W, E( \alpha))$, $e(H', E(1)) = e(H, E( \alpha))$
+    - $e(E( \gamma), Y) = e(E( \beta_{v}\gamma), V_{free})e(E( \beta_{w}\gamma), W)$
     - $e( E(v_{0}(s))E(v_{in}(s))V_{free}, E(w_{0}(s))W ) = e(H, E(t(s)))$
   - Insight: Pairing allows us to do some limited computation on encrypted values - **arbitrary additions but just a single multiplication**
     - Addition: Adding over Elliptic Curve is homomorphic: $E(a)=aG, E(b)=bG \Rightarrow E(a+b)=(a+b)G=aG+bG=E(a)+E(b)$
-    - Multiplication: From pairing, $e(\alpha G, W) = e(G, \alpha W) \Rightarrow $ solve $\alpha W$ unconditionally
+    - Multiplication: From pairing, $e( \alpha G, W) = e(G, \alpha W) \Rightarrow $ solve $\alpha W$ unconditionally
 
 
 # Reference
