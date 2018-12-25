@@ -3,7 +3,7 @@ title: Digital Signatures in Blockchains
 date: 2018-12-25 12:49:08
 categories:
 - blockchain
-- digital signatures
+- digital signature
 tags:
 - ECDSA
 - Schnorr
@@ -57,7 +57,7 @@ Parameters:
 
 The Elliptic Curve $E$ is:
 
-$$E = \{ (x,y) \in \mathbb{F}_{p} \times \mathbb{F}_{p}: -x^{2} + y^{2} = 1 + dx^{2}y^{2} \}$$
+$E = \{ (x,y) \in \mathbb{F}_{p} \times \mathbb{F}_{p}: -x^{2} + y^{2} = 1 + dx^{2}y^{2} \}$
 
 Process:
 
