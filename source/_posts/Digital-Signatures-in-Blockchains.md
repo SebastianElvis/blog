@@ -54,7 +54,7 @@ Why Segwit:
 # MultiSig
 
 - https://cseweb.ucsd.edu/~mihir/papers/multisignatures-ccs.pdf
-- 
+- https://eprint.iacr.org/2018/483.pdf
 
 
 
@@ -94,3 +94,6 @@ Why Segwit:
 
 - https://blockstream.com/2018/01/23/musig-key-aggregation-schnorr-signatures.html
 
+# BLS
+
+https://medium.com/cryptoadvance/bls-signatures-better-than-schnorr-5a7fe30ea716
