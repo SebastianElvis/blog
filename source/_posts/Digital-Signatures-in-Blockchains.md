@@ -14,10 +14,11 @@ tags:
 # Evolution of Digital Signatures for Blockchain
 
 1. ECDSA based on Secp256k1
-2. Segwit
-3. MultiSig
-4. Schnorr Signatures
-5. BLS
+2. EdDSA
+3. Segwit
+4. MultiSig
+5. Schnorr Signatures
+6. BLS
 
 https://medium.com/cryptoadvance/how-schnorr-signatures-may-improve-bitcoin-91655bcb4744
 https://medium.com/cryptoadvance/bls-signatures-better-than-schnorr-5a7fe30ea716
@@ -39,6 +40,40 @@ Choose an Elliptic Curve with base point $G$ and order $n$ ($nG = O$)
   - check $sr \stackrel{?}{=} zG + rP$
 
 ![](ecdsa.png)
+
+# EdDSA
+
+Edwards-curve Digital Signature Algorithm (EdDSA) is a digital signature scheme using a variant of Schnorr signature based on Twisted Edwards curves.
+- It is designed to be faster than existing digital signature schemes without sacrificing security. 
+- It was developed by a team including Daniel J. Bernstein, Niels Duif, Tanja Lange, Peter Schwabe, and Bo-Yin Yang.
+
+Parameters:
+
+- $b \in \mathbb{N}$ and $b \geq 10$
+- hash function $H$ with $2b$-bit output
+- a prime power $p \equiv 1 (\mod 4)$
+- a non-square element $d \in \mathbb{F}_{p}$
+- a prime $q$ with $2^{b-4} \leq q \leq 2^{b-3}$
+
+The Elliptic Curve $E$ is:
+
+$$E = \{ (x,y) \in \mathbb{F}_{p} \times \mathbb{F}_{p}: -x^{2} + y^{2} = 1 + dx^{2}y^{2} \}$$
+
+Process:
+
+- **GEN**:
+  - private key $p$ with $b$ bits
+  - $H(p) = (h_{0}, \dots , h_{2b-1})$
+  - $a = 2^{b-2} + \sum_{3 \leq i \leq b-2}2^{i}h_{i}$
+  - public key $P = aG$
+- **SIGN**:
+  - message $m$
+  - $r = H(H(p) || m)$
+  - $R = rG$
+  - $s = (r + H(R, P, m) \cdot p) \mod q$
+  - signature $\sigma = (R, s)$
+- **VERIFY**:
+  - check $sG \stackrel{?}{=} R + H(R, P, m) \cdot A$
 
 # SegWit
 
