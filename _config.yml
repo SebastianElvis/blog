@@ -83,7 +83,7 @@ deploy:
   branch: master
 
 math:
-  engine: 'mathjax' # or 'katex'
+  engine: 'katex' # or 'katex'
   mathjax:
     src: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     config:
