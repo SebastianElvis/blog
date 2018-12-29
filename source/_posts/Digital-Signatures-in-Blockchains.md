@@ -57,14 +57,14 @@ Parameters:
 
 The Elliptic Curve $E$ is:
 
-$E = \{ (x,y) \in \mathbb{F}_{p} \times \mathbb{F}_{p}: -x^{2} + y^{2} = 1 + dx^{2}y^{2} \}$
+$$E = \{ (x,y) \in \mathbb{F}_{p} \times \mathbb{F}_{p}: -x^{2} + y^{2} = 1 + dx^{2}y^{2} \}$$
 
 Process:
 
 - **GEN**:
   - private key $p$ with $b$ bits
-  - $H(p) = (h_{0}, \dots , h_{2b-1})$
-  - $a = 2^{b-2} + \sum_{3 \leq i \leq b-2}2^{i}h_{i}$
+  - $ H(p) = (h_{0}, \dots , h_{2b-1}) $
+  - $ a = 2^{b-2} + \sum_{3 \leq i \leq b-2}2^{i}h_{i} $
   - public key $P = aG$
 - **SIGN**:
   - message $m$
@@ -114,16 +114,16 @@ Why Segwit:
 ### Batch Validation
 
 - With Schnorr we can add up all signature verification equations and verify only once
-- $(s_{1} + \dots + s_{1000})G = (R_{1}+ \dots +R_{1000}) + (H(P_{1},R_{1},m_{1})P_{1} + \dots + H(P_{1000},R_{1000},m_{1000})P_{1000})$
+$$ (s_{1} + \dots + s_{1000})G = (R_{1}+ \dots +R_{1000}) + (H(P_{1},R_{1},m_{1})P_{1} + \dots + H(P_{1000},R_{1000},m_{1000})P_{1000}) $$
 
 ![](batch-validation.png)
 
 ###Key Aggregation
 
 - Generate a shared public key with a pair of private keys
-- $P = P_{1} + P_{2} = p_{1}G + p_{2}G$
+- $ P = P_{1} + P_{2} = p_{1}G + p_{2}G $
 - ...
-- Signature $\sigma = (R_{1}+R_{2}, s_{1}+s_{2})$
+- Signature $ \sigma = (R_{1}+R_{2}, s_{1}+s_{2}) $
 
 ### MuSig
 
