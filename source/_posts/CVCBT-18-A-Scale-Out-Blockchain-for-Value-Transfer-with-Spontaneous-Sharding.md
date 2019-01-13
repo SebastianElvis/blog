@@ -1,7 +1,11 @@
 ---
 title: CVCBT'18 - A Scale-Out Blockchain for Value Transfer with Spontaneous Sharding
 date: 2019-01-03 20:41:00
+categories:
+- paper reading
 tags:
+- Sharding
+- Scalability
 ---
 
 # Info

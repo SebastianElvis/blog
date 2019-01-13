@@ -1,7 +1,12 @@
 ---
 title: Compact Multi-Signatures for Smaller Blockchains
 date: 2019-01-04 19:54:37
+categories:
+- paper reading
 tags:
+- MultiSig
+- BLS
+- Pairing
 ---
 
 
