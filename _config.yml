@@ -84,15 +84,15 @@ deploy:
 
 math:
   engine: 'katex' # or 'katex'
-  # mathjax:
-  #   src: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  #   config:
-  #     # MathJax config
-  katex:
-    css: #custom_css_source
-    js: #custom_js_source # not used
+  mathjax:
+    src: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     config:
-      # KaTeX config
+      # MathJax config
+  # katex:
+  #   css: #custom_css_source
+  #   js: #custom_js_source # not used
+  #   config:
+  #     # KaTeX config
 
 sequence:
   # webfont:     # optional, the source url of webfontloader.js 
