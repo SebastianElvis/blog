@@ -12,9 +12,11 @@ tags:
 # Introduction
 
 Cross-chain Trading:
+
 - Allows some amount of one cryptocurrency (e.g. Bitcoin) to be traded for some amount of another cryptocurrency (e.g. Bitcoin on a sidechain)
 
 Hashed Timelock Contracts (HTLC):
+
 - Use hash locks and timelocks to require a payee either
   - acknowledge receiving prior to a deadline by generating cryptographic proof of payment
   - or forfeit the ability to chaim the payment and return it to the payer
@@ -30,13 +32,15 @@ Hashed Timelock Contracts (HTLC):
 ## Hashlock
 
 The Bitcoin Script describes a transaction that uses one of these hash functions to create a **transaction puzzle**
+
 - A transaction output which can only be spent by someone who can satisfy this encumbrance
 
-```
+```bitcoin
 OP_HASH256 6fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000 OP_EQUAL
 ```
 
 Execution process:
+
 1. take the data on the top of the stack (not shown)
 2. hash it with the sha256d function (creating a computed hash)
 3. compare it to the string 6fe2...0000 above (the provided hash)
@@ -128,5 +132,6 @@ Situations:
   - B must spend his new coin within 72 hours or A can claim the refund and keep his coins
 
 Disadvantages:
+
 - if counterparty does not go through the trade, funds will be locked and cannot used in another trade for the duration of timeout. 
 - it depends on transaction replacement which may, or may not be considered standard under current bitcoin protocol rules.
