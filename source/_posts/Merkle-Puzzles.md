@@ -8,7 +8,11 @@ tags:
 - Merkle Puzzles
 ---
 
-# Merkle Puzzles in a Nutshell
+# Description
+
+Merkle Puzzles [Mer75] allow two parties to agree on a shared secret by exchanging messages, even if they have no secrets in common beforehand (similar to Diffie-Hellman Key Exchange).
+
+# Construction
 
 Common Knowledges:
 
@@ -24,3 +28,7 @@ The protocol operates as follows:
 5. With at least 0.9 probability, there will be at least one **collision** between Alice's and Bob's messages: a pair $(i, j)$ s.t. $a_{i} = b_{j}$. Alice and Bob choose the lexicographically first such pair as their secrets
    - Alice sets $s_{a} = x_{i}$ as her secret, and Bob sets $s_{b} = y_{j}$ as his secret
    - If no collision, no secret
+
+# References
+
+- [Mer75] [Ralph Merkle. Secure Communication Over Insecure Channels.](http://www.merkle.com/1974/Puzzles1975.12.07.pdf)
