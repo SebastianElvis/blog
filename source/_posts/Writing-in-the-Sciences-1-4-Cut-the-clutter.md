@@ -35,7 +35,9 @@ These can be removed directly, as it conveys no information.
 
 e.g.
 
-> The expected prevalence of mental retardation, **based on the assumption that** intelligence is normally distributed, is about 2.5%.
+The expected prevalence of mental retardation, **based on the assumption that** intelligence is normally distributed, is about 2.5%.
+
+$$\downarrow$$
 
 The expected prevalence of mental retardation, **if** intelligence is normally distributed, is about 2.5%.
 
@@ -59,7 +61,9 @@ Only one word should be left in the following cases:
 
 e.g.
 
-> A robust cell-mediated immune response is necessary, and deficiency in this response predisposes an individual towards active TB.
+A robust cell-mediated immune response is necessary, and deficiency in this response predisposes an individual towards active TB.
+
+$$\downarrow$$
 
 Deficiency in T-cell-mediated immune response predisposes an individual to active TB.
 
