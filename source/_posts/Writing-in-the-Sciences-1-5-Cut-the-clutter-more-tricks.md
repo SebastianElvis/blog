@@ -5,7 +5,7 @@ categories:
 - writing
 ---
 
-# Conclusion
+# More Common Clutter
 
 - Eliminate negatives
 - Eliminate superfluous uses of "there is/are"
